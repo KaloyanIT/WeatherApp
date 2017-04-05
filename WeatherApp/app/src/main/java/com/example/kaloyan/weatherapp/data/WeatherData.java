@@ -1,6 +1,8 @@
-package com.example.kaloyan.weatherapp;
+package com.example.kaloyan.weatherapp.data;
 
-import com.google.gson.Gson;
+import com.example.kaloyan.weatherapp.HttpRequester;
+import com.example.kaloyan.weatherapp.utils.JsonParser;
+import com.example.kaloyan.weatherapp.models.Weather;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;

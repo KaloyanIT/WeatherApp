@@ -1,4 +1,4 @@
-package com.example.kaloyan.weatherapp;
+package com.example.kaloyan.weatherapp.utils;
 
 import com.google.gson.Gson;
 

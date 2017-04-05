@@ -1,10 +1,10 @@
-package com.example.kaloyan.weatherapp;
+package com.example.kaloyan.weatherapp.models;
 
 /**
  * Created by kaloyan on 05.04.17.
  */
 
-class Weather {
+public class Weather {
     public String name;
     public String description;
 }

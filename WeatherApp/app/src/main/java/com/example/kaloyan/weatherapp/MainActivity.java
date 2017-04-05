@@ -3,18 +3,16 @@ package com.example.kaloyan.weatherapp;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.example.kaloyan.weatherapp.data.WeatherData;
+import com.example.kaloyan.weatherapp.models.Weather;
 
-import io.reactivex.Scheduler;
+import java.util.ArrayList;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.OkHttpClient;
 
 public class MainActivity extends Activity {
     @Override
