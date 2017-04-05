@@ -31,8 +31,8 @@ public class HttpRequester {
         Response response = this.httpClient.newCall(request)
                 .execute();
 
-        //TODO: Add error handling 401 and so on
+        //TODO: Add error handling 400 and so on
 
         return response.body().string();
-    }    
+    }
 }
