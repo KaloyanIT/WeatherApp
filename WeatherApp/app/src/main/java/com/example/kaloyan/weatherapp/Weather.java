@@ -5,4 +5,6 @@ package com.example.kaloyan.weatherapp;
  */
 
 class Weather {
+    public String name;
+    public String description;
 }
