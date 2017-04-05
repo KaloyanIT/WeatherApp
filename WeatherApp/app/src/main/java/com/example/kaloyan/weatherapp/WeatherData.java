@@ -1,7 +1,6 @@
 package com.example.kaloyan.weatherapp;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonParser;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -14,14 +13,14 @@ import io.reactivex.ObservableOnSubscribe;
 public class WeatherData {
 
     private final HttpRequester httpRequester;
-    private final Gson jsonParser;
+    private final JsonParser jsonParser;
     private final String url;
 
     public WeatherData(String url) {
-        this(url, new HttpRequester(), new Gson());
+        this(url, new HttpRequester(), new JsonParser());
     }
 
-    public WeatherData(String url, HttpRequester httpRequester, Gson jsonParser) {
+    public WeatherData(String url, HttpRequester httpRequester, JsonParser jsonParser) {
         this.url = url;
         this.httpRequester = httpRequester;
         this.jsonParser = jsonParser;
