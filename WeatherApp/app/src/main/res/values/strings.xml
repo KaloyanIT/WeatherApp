@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="nav_item_home">Home</string>
+    <string name="action_settings">Settings</string>
+    <string name="nav_item_cities">Cities</string>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_home</item>
+        <item>@string/nav_item_cities</item>
+    </string-array>
+
 </resources>

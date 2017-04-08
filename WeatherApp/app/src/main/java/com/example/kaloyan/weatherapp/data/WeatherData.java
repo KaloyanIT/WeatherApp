@@ -29,18 +29,15 @@ public class WeatherData {
     }
 
 
-    public Observable<Weather[]> getAllInfoWeather() {
-        return Observable.create(new ObservableOnSubscribe<Weather[]>() {
+    public Observable<Weather> getAllInfoWeather() {
+        return Observable.create(new ObservableOnSubscribe<Weather>() {
             @Override
-            public void subscribe(ObservableEmitter<Weather[]> e) throws Exception {
+            public void subscribe(ObservableEmitter<Weather> e) throws Exception {
                 try {
                     String json = httpRequester.getJson(url);
-                    System.out.print(json);
                     Weather weathers = jsonParser.fromJson(json, Weather.class);
-                    Weather[] weathers1 = new Weather[3];
-                    weathers1[0] = weathers;
-                    //e.onNext(weathers);
-                    e.onNext(weathers1);
+                    e.onNext(weathers);
+
                 } catch (Exception ex) {
                     e.onError(ex);
                 }
