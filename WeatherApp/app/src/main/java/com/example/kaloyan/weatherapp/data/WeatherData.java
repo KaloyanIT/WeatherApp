@@ -35,8 +35,12 @@ public class WeatherData {
             public void subscribe(ObservableEmitter<Weather[]> e) throws Exception {
                 try {
                     String json = httpRequester.getJson(url);
-                    Weather[] weathers = jsonParser.fromJson(json, Weather[].class);
-                    e.onNext(weathers);
+                    System.out.print(json);
+                    Weather weathers = jsonParser.fromJson(json, Weather.class);
+                    Weather[] weathers1 = new Weather[3];
+                    weathers1[0] = weathers;
+                    //e.onNext(weathers);
+                    e.onNext(weathers1);
                 } catch (Exception ex) {
                     e.onError(ex);
                 }

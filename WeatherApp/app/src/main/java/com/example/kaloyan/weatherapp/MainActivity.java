@@ -7,6 +7,7 @@ import android.widget.ListView;
 
 import com.example.kaloyan.weatherapp.data.WeatherData;
 import com.example.kaloyan.weatherapp.models.Weather;
+import com.example.kaloyan.weatherapp.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -23,15 +24,9 @@ public class MainActivity extends Activity {
         final ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         lv.setAdapter(adapter);
 
-//        HttpRequester httpRequester = new HttpRequester();
-          String url = "http://192.168.0.103:3001/api/foods";
-//        try {
-//            String responseJson = httpRequester.getJson(url);
-//            System.out.print(responseJson);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
+        String url = Constants.BASE_URL;
+
+
         WeatherData data = new WeatherData(url);
         data.getAllInfoWeather()
                 .observeOn(AndroidSchedulers.mainThread())
@@ -42,7 +37,7 @@ public class MainActivity extends Activity {
                     public Object apply(Weather[] weathers) throws Exception {
                         ArrayList<String> weathersString = new ArrayList<String>();
                         for (int i = 0; i < weathers.length; i++) {
-                            weathersString.add(weathers[i].name);
+                            weathersString.add("Add");
                         }
                         adapter.addAll(weathersString);
                         return weathersString;
