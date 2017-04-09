@@ -11,10 +11,14 @@
     <!-- navigation drawer item labels  -->
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_home</item>
+        <item>@string/nav_item_daily</item>
         <item>@string/nav_item_weekly</item>
+
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_daily">24 Hour Forecast</string>
+    <string name="nav_item_daily">24 Hours Forecast</string>
 
 </resources>
