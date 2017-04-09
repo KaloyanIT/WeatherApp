@@ -2,14 +2,16 @@
     <string name="app_name">WeatherApp</string>
     <string name="nav_item_home">Home</string>
     <string name="action_settings">Settings</string>
-    <string name="nav_item_cities">Cities</string>
+    <string name="nav_item_weekly">7 days</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="title_home">Home</string>
+    <string name="title_weekly">7 days</string>
 
     <!-- navigation drawer item labels  -->
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_home</item>
-        <item>@string/nav_item_cities</item>
+        <item>@string/nav_item_weekly</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

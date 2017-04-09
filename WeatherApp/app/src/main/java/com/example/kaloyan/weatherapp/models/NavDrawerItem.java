@@ -1,4 +1,4 @@
-package com.example.kaloyan.weatherapp;
+package com.example.kaloyan.weatherapp.models;
 
 /**
  * Created by kaloyan on 09.04.17.

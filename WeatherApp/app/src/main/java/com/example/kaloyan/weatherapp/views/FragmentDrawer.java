@@ -1,10 +1,9 @@
-package com.example.kaloyan.weatherapp;
+package com.example.kaloyan.weatherapp.views;
 
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,7 +14,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.example.kaloyan.weatherapp.R;
+import com.example.kaloyan.weatherapp.adapters.NavigationDrawerAdapter;
+import com.example.kaloyan.weatherapp.models.NavDrawerItem;
 
 import java.util.ArrayList;
 import java.util.List;

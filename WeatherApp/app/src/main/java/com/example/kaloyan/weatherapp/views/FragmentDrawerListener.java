@@ -1,4 +1,4 @@
-package com.example.kaloyan.weatherapp;
+package com.example.kaloyan.weatherapp.views;
 
 import android.view.View;
 

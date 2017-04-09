@@ -1,22 +1,23 @@
 package com.example.kaloyan.weatherapp;
 
-import android.app.Activity;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.kaloyan.weatherapp.data.WeatherData;
 import com.example.kaloyan.weatherapp.models.Weather;
 import com.example.kaloyan.weatherapp.utils.Constants;
-
-import java.util.ArrayList;
+import com.example.kaloyan.weatherapp.views.FragmentDrawer;
+import com.example.kaloyan.weatherapp.views.Fragments.WeeklyFragment;
+import com.example.kaloyan.weatherapp.views.HomeFragment;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
+
+        displayView(0);
 
 
         WeatherData data = new WeatherData(url);
@@ -71,6 +74,33 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     @Override
     public void onDrawerItemSelected(View view, int position) {
+        displayView(position);
+    }
 
+    private void displayView(int position) {
+        Fragment fragment = null;
+        String title = getString(R.string.app_name);
+        switch (position) {
+            case 0:
+                fragment = new HomeFragment();
+                title = getString(R.string.title_home);
+                break;
+            case 1:
+                fragment = new WeeklyFragment();
+                title = getString(R.string.title_weekly);
+                break;
+            default:
+                break;
+        }
+
+        if(fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commit();
+
+            // set the toolbar title
+            getSupportActionBar().setTitle(title);
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.kaloyan.weatherapp;
+package com.example.kaloyan.weatherapp.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.kaloyan.weatherapp.models.NavDrawerItem;
+import com.example.kaloyan.weatherapp.R;
 
 import java.util.Collections;
 import java.util.List;
