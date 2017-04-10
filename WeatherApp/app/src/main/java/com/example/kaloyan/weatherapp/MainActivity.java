@@ -15,6 +15,8 @@ import android.view.View;
 import com.example.kaloyan.weatherapp.data.WeatherData;
 import com.example.kaloyan.weatherapp.models.Weather;
 import com.example.kaloyan.weatherapp.utils.Constants;
+import com.example.kaloyan.weatherapp.views.daily.DailyContracts;
+import com.example.kaloyan.weatherapp.views.daily.DailyPresenter;
 import com.example.kaloyan.weatherapp.views.drawer.FragmentDrawer;
 import com.example.kaloyan.weatherapp.views.daily.DailyView;
 import com.example.kaloyan.weatherapp.views.weekly.WeeklyView;
@@ -27,6 +29,7 @@ import io.reactivex.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
     private Toolbar mToolbar;
     private FragmentDrawer drawerFragment;
+    private DailyContracts.Presenter dailyPresenter;
     public Weather weather;
 
     @Override
@@ -97,7 +100,9 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 title = getString(R.string.title_home);
                 break;
             case 1:
-                fragment = new DailyView();
+                DailyView dailyView = new DailyView();
+                this.dailyPresenter = new DailyPresenter(dailyView);
+                fragment = (Fragment) this.dailyPresenter.getView();
                 title = getString(R.string.title_daily);
                 break;
             case 2:
