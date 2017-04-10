@@ -1,4 +1,4 @@
-package com.example.kaloyan.weatherapp.views.Fragments;
+package com.example.kaloyan.weatherapp.views.home;
 
 
 import android.app.Activity;
@@ -7,17 +7,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.kaloyan.weatherapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeView extends Fragment {
 
 
-    public HomeFragment() {
+    public HomeView() {
         // Required empty public constructor
     }
 

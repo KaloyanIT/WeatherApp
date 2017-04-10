@@ -15,10 +15,10 @@ import android.view.View;
 import com.example.kaloyan.weatherapp.data.WeatherData;
 import com.example.kaloyan.weatherapp.models.Weather;
 import com.example.kaloyan.weatherapp.utils.Constants;
-import com.example.kaloyan.weatherapp.views.FragmentDrawer;
-import com.example.kaloyan.weatherapp.views.Fragments.DailyFragment;
-import com.example.kaloyan.weatherapp.views.Fragments.WeeklyFragment;
-import com.example.kaloyan.weatherapp.views.Fragments.HomeFragment;
+import com.example.kaloyan.weatherapp.views.drawer.FragmentDrawer;
+import com.example.kaloyan.weatherapp.views.daily.DailyView;
+import com.example.kaloyan.weatherapp.views.weekly.WeeklyView;
+import com.example.kaloyan.weatherapp.views.home.HomeView;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
@@ -27,6 +27,7 @@ import io.reactivex.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
     private Toolbar mToolbar;
     private FragmentDrawer drawerFragment;
+    public Weather weather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 .map(new Function<Weather, String>() {
                     @Override
                     public String apply(Weather weather) throws Exception {
+                        weather = weather;
                         //TextView tv_title = (TextView) findViewById(R.id.my_textview) ;
                         //tv_title.setText(weather.daily.summary);
                         return weather.daily.summary;
@@ -60,6 +62,14 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 })
                 .subscribe();
     }
+
+    public Weather getData() {
+        if(this.weather != null) {
+            return this.weather;
+        }
+        return null;
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,15 +93,15 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         String title = getString(R.string.app_name);
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = new HomeView();
                 title = getString(R.string.title_home);
                 break;
             case 1:
-                fragment = new DailyFragment();
+                fragment = new DailyView();
                 title = getString(R.string.title_daily);
                 break;
             case 2:
-                fragment = new WeeklyFragment();
+                fragment = new WeeklyView();
                 title = getString(R.string.title_weekly);
             default:
                 break;

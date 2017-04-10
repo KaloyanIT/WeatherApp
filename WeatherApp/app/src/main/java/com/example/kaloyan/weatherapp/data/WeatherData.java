@@ -1,6 +1,6 @@
 package com.example.kaloyan.weatherapp.data;
 
-import com.example.kaloyan.weatherapp.HttpRequester;
+import com.example.kaloyan.weatherapp.utils.HttpRequester;
 import com.example.kaloyan.weatherapp.utils.JsonParser;
 import com.example.kaloyan.weatherapp.models.Weather;
 
