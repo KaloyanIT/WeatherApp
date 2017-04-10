@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.kaloyan.weatherapp.R;
+import com.example.kaloyan.weatherapp.views.MainContracts;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DailyView extends Fragment {
+public class DailyView extends Fragment implements MainContracts.View {
+    private MainContracts.Presenter presenter;
 
 
     public DailyView() {
@@ -29,4 +31,8 @@ public class DailyView extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void setPresenter(MainContracts.Presenter presenter) {
+        this.presenter = presenter;
+    }
 }
