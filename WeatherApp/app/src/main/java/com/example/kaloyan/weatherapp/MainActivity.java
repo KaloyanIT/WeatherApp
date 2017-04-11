@@ -19,6 +19,8 @@ import com.example.kaloyan.weatherapp.views.daily.DailyContracts;
 import com.example.kaloyan.weatherapp.views.daily.DailyPresenter;
 import com.example.kaloyan.weatherapp.views.drawer.FragmentDrawer;
 import com.example.kaloyan.weatherapp.views.daily.DailyView;
+import com.example.kaloyan.weatherapp.views.weekly.WeeklyContracts;
+import com.example.kaloyan.weatherapp.views.weekly.WeeklyPresenter;
 import com.example.kaloyan.weatherapp.views.weekly.WeeklyView;
 import com.example.kaloyan.weatherapp.views.home.HomeView;
 
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     private FragmentDrawer drawerFragment;
     private DailyContracts.Presenter dailyPresenter;
     public Weather weather;
+    private WeeklyContracts.Presenter weeklyPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +109,9 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 title = getString(R.string.title_daily);
                 break;
             case 2:
-                fragment = new WeeklyView();
+                WeeklyView weeklyView = new WeeklyView();
+                this.weeklyPresenter = new WeeklyPresenter(weeklyView);
+                fragment = (Fragment) this.weeklyPresenter.getView();
                 title = getString(R.string.title_weekly);
             default:
                 break;

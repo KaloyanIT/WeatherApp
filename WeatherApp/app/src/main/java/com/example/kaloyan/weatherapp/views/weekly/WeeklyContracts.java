@@ -1,4 +1,4 @@
-package com.example.kaloyan.weatherapp.views.daily;
+package com.example.kaloyan.weatherapp.views.weekly;
 
 import com.example.kaloyan.weatherapp.models.Weather;
 
@@ -6,9 +6,9 @@ import com.example.kaloyan.weatherapp.models.Weather;
  * Created by kaloyan on 11.04.17.
  */
 
-public interface DailyContracts {
+public interface WeeklyContracts {
     interface View {
-        void setPresenter(DailyContracts.Presenter presenter);
+        void setPresenter(WeeklyContracts.Presenter presenter);
 
         void setWeatherData(Weather weather);
     }
@@ -16,6 +16,6 @@ public interface DailyContracts {
     interface Presenter {
         void start();
 
-        DailyContracts.View getView();
+        WeeklyContracts.View getView();
     }
 }

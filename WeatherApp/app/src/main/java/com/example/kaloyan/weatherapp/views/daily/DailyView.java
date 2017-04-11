@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.kaloyan.weatherapp.R;
+import com.example.kaloyan.weatherapp.models.Daily;
 import com.example.kaloyan.weatherapp.models.Weather;
-import com.example.kaloyan.weatherapp.views.MainContracts;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DailyView extends Fragment implements DailyContracts.View {
-    private MainContracts.Presenter presenter;
+    private DailyContracts.Presenter presenter;
     private TextView tvDailyLabel;
 
 
@@ -41,7 +41,7 @@ public class DailyView extends Fragment implements DailyContracts.View {
     }
 
     @Override
-    public void setPresenter(MainContracts.Presenter presenter) {
+    public void setPresenter(DailyContracts.Presenter presenter) {
         this.presenter = presenter;
     }
 }
