@@ -35,6 +35,7 @@ public class DailyPresenter implements DailyContracts.Presenter {
                         weather = weather;
                         //TextView tv_title = (TextView) findViewById(R.id.my_textview) ;
                         //tv_title.setText(weather.daily.summary);
+                        getView().getDialog().dismiss();
                         getView().setWeatherData(weather);
                         return weather.daily.summary;
                     }

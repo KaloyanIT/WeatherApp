@@ -1,6 +1,7 @@
 package com.example.kaloyan.weatherapp.views.daily;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import com.example.kaloyan.weatherapp.models.Weather;
 public class DailyView extends Fragment implements DailyContracts.View {
     private DailyContracts.Presenter presenter;
     private TextView tvDailyLabel;
+    private ProgressDialog dialog;
 
 
     public DailyView() {
@@ -30,10 +32,15 @@ public class DailyView extends Fragment implements DailyContracts.View {
         View rootView = inflater.inflate(R.layout.fragment_daily, container, false);
 
         tvDailyLabel = (TextView) rootView.findViewById(R.id.tv_daily_label);
+        dialog = ProgressDialog.show(getContext(), "Wait", "");
 
         this.presenter.start();
 
         return rootView;
+    }
+
+    public ProgressDialog getDialog() {
+        return this.dialog;
     }
 
     public void setWeatherData(Weather weather) {

@@ -13,8 +13,8 @@ import com.example.kaloyan.weatherapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeView extends Fragment {
-
+public class HomeView extends Fragment implements HomeContracts.View {
+    private HomeContracts.Presenter presenter;
 
     public HomeView() {
         // Required empty public constructor
@@ -36,5 +36,10 @@ public class HomeView extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void setPresenter(HomeContracts.Presenter presenter) {
+        this.presenter = presenter;
     }
 }
