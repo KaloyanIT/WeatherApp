@@ -1,6 +1,7 @@
 package com.example.kaloyan.weatherapp.views.weekly;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,10 +16,9 @@ import com.example.kaloyan.weatherapp.models.Weather;
  * A simple {@link Fragment} subclass.
  */
 public class WeeklyView extends Fragment implements WeeklyContracts.View {
-
-
     private WeeklyContracts.Presenter presenter;
     private TextView tvLabel;
+    private ProgressDialog dialog;
 
     public WeeklyView() {
         // Required empty public constructor
@@ -31,6 +31,8 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
         View rootView = inflater.inflate(R.layout.fragment_weekly, container, false);
 
         tvLabel = (TextView) rootView.findViewById(R.id.tv_weekly_label);
+
+        dialog = ProgressDialog.show(getContext(), "Wait", "");
 
         this.presenter.start();
         return rootView;
@@ -45,5 +47,10 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
     public void setWeatherData(Weather weather) {
         String info = weather.daily.summary;
         this.tvLabel.setText(info);
+    }
+
+    @Override
+    public ProgressDialog getDialog() {
+        return this.dialog;
     }
 }

@@ -32,6 +32,7 @@ public class WeeklyPresenter implements WeeklyContracts.Presenter {
 
                     @Override
                     public String apply(Weather weather) throws Exception {
+                        getView().getDialog().dismiss();
                         getView().setWeatherData(weather);
                         return weather.daily.summary;
                     }

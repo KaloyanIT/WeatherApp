@@ -1,5 +1,7 @@
 package com.example.kaloyan.weatherapp.views.weekly;
 
+import android.app.ProgressDialog;
+
 import com.example.kaloyan.weatherapp.models.Weather;
 
 /**
@@ -11,6 +13,8 @@ public interface WeeklyContracts {
         void setPresenter(WeeklyContracts.Presenter presenter);
 
         void setWeatherData(Weather weather);
+
+        ProgressDialog getDialog();
     }
 
     interface Presenter {
