@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.kaloyan.weatherapp.R;
+import com.example.kaloyan.weatherapp.models.Daily;
 import com.example.kaloyan.weatherapp.models.Weather;
 
 /**
@@ -44,8 +45,8 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
     }
 
     @Override
-    public void setWeatherData(Weather weather) {
-        String info = weather.daily.summary;
+    public void setWeatherData(Daily daily) {
+        String info = daily.summary;
         this.tvLabel.setText(info);
     }
 

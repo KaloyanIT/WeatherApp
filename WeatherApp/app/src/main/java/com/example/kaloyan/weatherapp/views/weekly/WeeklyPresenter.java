@@ -1,6 +1,7 @@
 package com.example.kaloyan.weatherapp.views.weekly;
 
 import com.example.kaloyan.weatherapp.data.WeatherData;
+import com.example.kaloyan.weatherapp.models.Daily;
 import com.example.kaloyan.weatherapp.models.Weather;
 import com.example.kaloyan.weatherapp.utils.Constants;
 
@@ -25,16 +26,16 @@ public class WeeklyPresenter implements WeeklyContracts.Presenter {
 
     @Override
     public void start() {
-        this.data.getAllInfoWeather()
+        this.data.getForecastForWeek()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .map(new Function<Weather, String>() {
+                .map(new Function<Daily, String>() {
 
                     @Override
-                    public String apply(Weather weather) throws Exception {
+                    public String apply(Daily daily) throws Exception {
                         getView().getDialog().dismiss();
-                        getView().setWeatherData(weather);
-                        return weather.daily.summary;
+                        getView().setWeatherData(daily);
+                        return daily.summary;
                     }
                 })
                 .subscribe();

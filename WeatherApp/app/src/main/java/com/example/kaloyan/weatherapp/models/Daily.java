@@ -6,4 +6,7 @@ package com.example.kaloyan.weatherapp.models;
 
 public class Daily {
     public String summary;
+    public String icon;
+    public ForecastDataModel[] data;
 }
+
