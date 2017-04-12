@@ -4,7 +4,7 @@ package com.example.kaloyan.weatherapp.models;
  * Created by kaloyan on 08.04.17.
  */
 
-class Currently {
+public class Currently {
     public long time;
     public String summary;
     public String icon;
