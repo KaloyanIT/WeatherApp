@@ -5,26 +5,12 @@
     android:orientation="vertical"
     tools:context=".views.weekly.WeeklyView">
 
-
-    <TextView
-        android:id="@+id/tv_weekly_label"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
-        android:layout_width="fill_parent"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rw_week_forecast"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textSize="45dp"
-        android:text="7 DAYS FORECAST"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:layout_below="@id/label"
-        android:layout_centerInParent="true"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:text="Edit fragment_weekly.xml to change the appearance" />
+        android:layout_below="@id/nav_header_container"
+        android:layout_marginTop="15dp"
+        />
 
 </RelativeLayout>
