@@ -45,7 +45,7 @@ public class WeekForecastAdapter extends RecyclerView.Adapter<WeekForecastAdapte
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
