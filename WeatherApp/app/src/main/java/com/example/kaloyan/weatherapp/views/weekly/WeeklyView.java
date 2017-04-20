@@ -15,6 +15,7 @@ import com.example.kaloyan.weatherapp.R;
 import com.example.kaloyan.weatherapp.adapters.WeekForecastAdapter;
 import com.example.kaloyan.weatherapp.models.Daily;
 import com.example.kaloyan.weatherapp.models.DayOfWeekItem;
+import com.example.kaloyan.weatherapp.models.ForecastDataModel;
 import com.example.kaloyan.weatherapp.models.NavDrawerItem;
 import com.example.kaloyan.weatherapp.models.Weather;
 
@@ -31,6 +32,7 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
     private RecyclerView rv_weekForecast;
     private static String[] titles = {"pesho", "kesho", "sisho"};
     private WeekForecastAdapter adapter;
+    private List<ForecastDataModel> dataModelList;
 
 
 
@@ -56,17 +58,18 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_weekly, container, false);
+        this.presenter.start();
         rv_weekForecast = (RecyclerView) rootView.findViewById(R.id.rw_week_forecast);
-        adapter = new WeekForecastAdapter(getContext(), getData());
-        rv_weekForecast.setAdapter(adapter);
-        rv_weekForecast.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new WeekForecastAdapter(getContext(), dataModelList);
+
 
 
 
 
         dialog = ProgressDialog.show(getContext(), "Wait", "");
 
-        this.presenter.start();
+        rv_weekForecast.setAdapter(adapter);
+        rv_weekForecast.setLayoutManager(new LinearLayoutManager(getContext()));
         return rootView;
     }
 
@@ -78,6 +81,7 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
     @Override
     public void setWeatherData(Daily daily) {
         String info = daily.summary;
+        dataModelList = daily.data;
         //this.tvLabel.setText(info);
     }
 

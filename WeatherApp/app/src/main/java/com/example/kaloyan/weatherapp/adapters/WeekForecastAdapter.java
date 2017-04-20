@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.kaloyan.weatherapp.R;
+import com.example.kaloyan.weatherapp.models.Daily;
 import com.example.kaloyan.weatherapp.models.DayOfWeekItem;
 import com.example.kaloyan.weatherapp.models.ForecastDataModel;
 
@@ -20,11 +21,11 @@ import java.util.zip.Inflater;
  */
 
 public class WeekForecastAdapter extends RecyclerView.Adapter<WeekForecastAdapter.MyViewHolder> {
-    private List<DayOfWeekItem> data = Collections.emptyList();
+    private List<ForecastDataModel> data = Collections.emptyList();
     private LayoutInflater inflater;
     private final Context context;
 
-    public WeekForecastAdapter(Context context, List<DayOfWeekItem> data) {
+    public WeekForecastAdapter(Context context, List<ForecastDataModel> data) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.data = data;
@@ -39,13 +40,13 @@ public class WeekForecastAdapter extends RecyclerView.Adapter<WeekForecastAdapte
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        DayOfWeekItem current = data.get(position);
-        holder.title.setText(current.getTitle());
+        ForecastDataModel current = data.get(position);
+        holder.title.setText("No title");
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return null == data ? 0 : data.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -53,9 +54,13 @@ public class WeekForecastAdapter extends RecyclerView.Adapter<WeekForecastAdapte
         private final TextView title;
 
         public MyViewHolder(View itemView) {
-
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.tv_forecast_title);
         }
     }
+
+    public void addData(List<ForecastDataModel> currData) {
+        this.data = currData;
+    }
+
 }
