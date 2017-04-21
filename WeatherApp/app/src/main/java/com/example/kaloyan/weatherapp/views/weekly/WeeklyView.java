@@ -32,25 +32,9 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
     private RecyclerView rv_weekForecast;
     private static String[] titles = {"pesho", "kesho", "sisho"};
     private WeekForecastAdapter adapter;
-    private List<ForecastDataModel> dataModelList;
-
-
 
     public WeeklyView() {
         // Required empty public constructor
-    }
-
-    public static List<DayOfWeekItem> getData() {
-        List<DayOfWeekItem> data = new ArrayList<>();
-
-
-        // preparing navigation drawer items
-        for (int i = 0; i < titles.length; i++) {
-            DayOfWeekItem navItem = new DayOfWeekItem();
-            navItem.setTitle(titles[i]);
-            data.add(navItem);
-        }
-        return data;
     }
 
 
@@ -58,18 +42,13 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_weekly, container, false);
-        this.presenter.start();
-        rv_weekForecast = (RecyclerView) rootView.findViewById(R.id.rw_week_forecast);
-        adapter = new WeekForecastAdapter(getContext(), dataModelList);
-
-
-
-
-
         dialog = ProgressDialog.show(getContext(), "Wait", "");
-
+        rv_weekForecast = (RecyclerView) rootView.findViewById(R.id.rw_week_forecast);
+        adapter = new WeekForecastAdapter(getContext(), null);
         rv_weekForecast.setAdapter(adapter);
         rv_weekForecast.setLayoutManager(new LinearLayoutManager(getContext()));
+        this.presenter.start();
+
         return rootView;
     }
 
@@ -80,10 +59,7 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
 
     @Override
     public void setWeatherData(Daily daily) {
-        String info = daily.summary;
         adapter.addData(daily.data);
-        //adapter.notifyItemRangeInserted(0, 3);
-        //this.tvLabel.setText(info);
     }
 
     @Override

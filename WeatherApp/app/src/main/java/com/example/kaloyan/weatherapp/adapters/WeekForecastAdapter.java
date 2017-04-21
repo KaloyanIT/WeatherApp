@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kaloyan.weatherapp.R;
@@ -43,6 +44,41 @@ public class WeekForecastAdapter extends RecyclerView.Adapter<WeekForecastAdapte
     public void onBindViewHolder(MyViewHolder holder, int position) {
         ForecastDataModel current = data.get(position);
         holder.title.setText(current.summary);
+        switch (current.icon) {
+            case "clear-day":
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+            case "clear-night":
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+            case "rain":
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+            case "snow":
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+            case "sleet":
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+            case "wind":
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+            case "fog":
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+            case "cloudy":
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+            case "partly-cloudy-day":
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+            case "partly-cloudy-night":
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+            default:
+                holder.icon.setImageResource(R.drawable.sample_icon);
+                break;
+        }
     }
 
     @Override
@@ -55,10 +91,12 @@ public class WeekForecastAdapter extends RecyclerView.Adapter<WeekForecastAdapte
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView title;
+        private final ImageView icon;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.tv_forecast_title);
+            icon = (ImageView) itemView.findViewById(R.id.img_daily);
         }
     }
 
