@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.kaloyan.weatherapp.R;
@@ -41,13 +42,15 @@ public class WeekForecastAdapter extends RecyclerView.Adapter<WeekForecastAdapte
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         ForecastDataModel current = data.get(position);
-        holder.title.setText("No title");
+        holder.title.setText(current.summary);
     }
 
     @Override
     public int getItemCount() {
         return null == data ? 0 : data.size();
     }
+
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -61,6 +64,8 @@ public class WeekForecastAdapter extends RecyclerView.Adapter<WeekForecastAdapte
 
     public void addData(List<ForecastDataModel> currData) {
         this.data = currData;
+        notifyItemRangeInserted(0, 6);
     }
+
 
 }

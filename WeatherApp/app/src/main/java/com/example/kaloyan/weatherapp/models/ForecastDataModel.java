@@ -32,4 +32,8 @@ public class ForecastDataModel {
     public float cloudCover;
     public float pressure;
     public float ozone;
+
+    public String getSummary() {
+        return this.summary;
+    }
 }

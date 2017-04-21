@@ -81,7 +81,8 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
     @Override
     public void setWeatherData(Daily daily) {
         String info = daily.summary;
-        dataModelList = daily.data;
+        adapter.addData(daily.data);
+        //adapter.notifyItemRangeInserted(0, 3);
         //this.tvLabel.setText(info);
     }
 
