@@ -16,6 +16,8 @@ public interface WeeklyContracts {
         void setWeatherData(Daily daily);
 
         ProgressDialog getDialog();
+
+
     }
 
     interface Presenter {

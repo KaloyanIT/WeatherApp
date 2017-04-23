@@ -18,6 +18,7 @@ import com.example.kaloyan.weatherapp.models.DayOfWeekItem;
 import com.example.kaloyan.weatherapp.models.ForecastDataModel;
 import com.example.kaloyan.weatherapp.models.NavDrawerItem;
 import com.example.kaloyan.weatherapp.models.Weather;
+import com.example.kaloyan.weatherapp.views.ClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,18 @@ public class WeeklyView extends Fragment implements WeeklyContracts.View {
         adapter = new WeekForecastAdapter(getContext(), null);
         rv_weekForecast.setAdapter(adapter);
         rv_weekForecast.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv_weekForecast.addOnItemTouchListener(new WeeklyTouchListener(getActivity(), rv_weekForecast, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                System.out.print("Clicked");
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
         this.presenter.start();
 
         return rootView;

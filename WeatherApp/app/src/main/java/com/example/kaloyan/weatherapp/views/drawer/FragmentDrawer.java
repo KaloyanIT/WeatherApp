@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import com.example.kaloyan.weatherapp.R;
 import com.example.kaloyan.weatherapp.adapters.NavigationDrawerAdapter;
 import com.example.kaloyan.weatherapp.models.NavDrawerItem;
+import com.example.kaloyan.weatherapp.views.ClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,11 +129,7 @@ public class FragmentDrawer extends Fragment {
 
     }
 
-    public static interface ClickListener {
-        public void onClick(View view, int position);
 
-        public void onLongClick(View view, int position);
-    }
 
     private static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
         private GestureDetector gestureDetector;
