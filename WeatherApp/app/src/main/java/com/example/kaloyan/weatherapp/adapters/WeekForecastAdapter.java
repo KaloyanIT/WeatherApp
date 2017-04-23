@@ -46,34 +46,34 @@ public class WeekForecastAdapter extends RecyclerView.Adapter<WeekForecastAdapte
         holder.title.setText(current.summary);
         switch (current.icon) {
             case "clear-day":
-                holder.icon.setImageResource(R.drawable.sample_icon);
+                holder.icon.setImageResource(R.drawable.sun);
                 break;
             case "clear-night":
-                holder.icon.setImageResource(R.drawable.sample_icon);
+                holder.icon.setImageResource(R.drawable.moon_full);
                 break;
             case "rain":
-                holder.icon.setImageResource(R.drawable.sample_icon);
+                holder.icon.setImageResource(R.drawable.rain);
                 break;
             case "snow":
-                holder.icon.setImageResource(R.drawable.sample_icon);
+                holder.icon.setImageResource(R.drawable.snow);
                 break;
             case "sleet":
-                holder.icon.setImageResource(R.drawable.sample_icon);
+                holder.icon.setImageResource(R.drawable.clouds_very_small);
                 break;
             case "wind":
-                holder.icon.setImageResource(R.drawable.sample_icon);
+                holder.icon.setImageResource(R.drawable.wind);
                 break;
             case "fog":
-                holder.icon.setImageResource(R.drawable.sample_icon);
+                holder.icon.setImageResource(R.drawable.clouds_very_small);
                 break;
             case "cloudy":
-                holder.icon.setImageResource(R.drawable.sample_icon);
+                holder.icon.setImageResource(R.drawable.cloudy);
                 break;
             case "partly-cloudy-day":
-                holder.icon.setImageResource(R.drawable.sample_icon);
+                holder.icon.setImageResource(R.drawable.partly_cloudy);
                 break;
             case "partly-cloudy-night":
-                holder.icon.setImageResource(R.drawable.sample_icon);
+                holder.icon.setImageResource(R.drawable.cloudy_moon);
                 break;
             default:
                 holder.icon.setImageResource(R.drawable.sample_icon);
