@@ -24,5 +24,7 @@ public interface WeeklyContracts {
         void start();
 
         WeeklyContracts.View getView();
+
+        void navigateWithh(int position);
     }
 }

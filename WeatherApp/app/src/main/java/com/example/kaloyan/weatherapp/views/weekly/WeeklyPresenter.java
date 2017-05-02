@@ -45,4 +45,9 @@ public class WeeklyPresenter implements WeeklyContracts.Presenter {
     public WeeklyContracts.View getView() {
         return this.view;
     }
+
+    @Override
+    public void navigateWithh(int position) {
+        //TODO open fragment with daily info
+    }
 }
